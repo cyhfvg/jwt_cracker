@@ -59,14 +59,14 @@ jobs:
           ASSET_BASENAME="${BINARY_NAME}-${TAG_NAME}-${TARGET}"
           mkdir -p dist
           cp "target/${TARGET}/release/${BINARY_NAME}${ASSET_SUFFIX}" "dist/${BINARY_NAME}${ASSET_SUFFIX}"
-          cp README.md README.zh-CN.md LICENSE create_cert_key.sh dist/
+          cp README.md README.zh-CN.md LICENSE dist/
 
           if [ "${ARCHIVE_EXT}" = "tar.gz" ]; then
-            tar -C dist -czf "${ASSET_BASENAME}.tar.gz" "${BINARY_NAME}${ASSET_SUFFIX}" README.md README.zh-CN.md LICENSE create_cert_key.sh
+            tar -C dist -czf "${ASSET_BASENAME}.tar.gz" "${BINARY_NAME}${ASSET_SUFFIX}" README.md README.zh-CN.md LICENSE
           else
             (
               cd dist
-              zip -9 "../${ASSET_BASENAME}.zip" "${BINARY_NAME}${ASSET_SUFFIX}" README.md README.zh-CN.md LICENSE create_cert_key.sh
+              zip -9 "../${ASSET_BASENAME}.zip" "${BINARY_NAME}${ASSET_SUFFIX}" README.md README.zh-CN.md LICENSE 
             )
           fi
 

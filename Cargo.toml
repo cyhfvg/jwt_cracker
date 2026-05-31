@@ -1,7 +1,9 @@
 [package]
 name = "jwt_cracker"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
+description = "A command-line tool for auditing weak secrets in HMAC-signed JWTs."
+license = "BSD-3-Clause"
 
 [dependencies]
 anyhow = "1.0.98"
