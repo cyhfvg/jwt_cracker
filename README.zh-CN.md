@@ -4,6 +4,20 @@
 
 `jwt_cracker` 是一个命令行工具，用于审计 HMAC 签名 JWT 是否使用了弱 secret。它可以将一个或多个 JWT token 与一个或多个候选 secret 进行检测，输入来源可以是直接字符串、文件或 stdin。
 
+## Hashcat 替代用法
+
+也可以直接使用 `hashcat` 实现相同的弱 secret 审计作用。将 JWT token 保存到 `jwt.hash`，将候选 secret 字典保存到 `jwt-secrets.txt`，然后运行：
+
+```bash
+hashcat -m 16500 -a 0 jwt.hash jwt-secrets.txt --status --status-timer=10
+```
+
+查看已破解结果：
+
+```bash
+hashcat -m 16500 jwt.hash --show
+```
+
 ## 仅限授权测试使用
 
 请仅在你拥有或被明确授权测试的系统、应用和 token 上使用本工具。不要在未获得书面授权的情况下，对第三方服务、生产系统或用户数据使用 `jwt_cracker`。使用者需要自行确保符合适用法律、组织政策和测试授权范围。

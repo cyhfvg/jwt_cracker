@@ -4,6 +4,20 @@
 
 `jwt_cracker` is a command-line tool for auditing weak secrets in HMAC-signed JWTs. It can test one or many JWT tokens against one or many candidate secrets from direct input, files, or stdin.
 
+## Hashcat Alternative
+
+The same weak-secret audit can also be performed directly with `hashcat`. Save the JWT token to `jwt.hash`, put candidate secrets in `jwt-secrets.txt`, then run:
+
+```bash
+hashcat -m 16500 -a 0 jwt.hash jwt-secrets.txt --status --status-timer=10
+```
+
+Show cracked results:
+
+```bash
+hashcat -m 16500 jwt.hash --show
+```
+
 ## Authorized Use Only
 
 Use this tool only on systems, applications, and tokens that you own or have explicit permission to test. Do not use `jwt_cracker` against third-party services, production systems, or user data without written authorization. You are responsible for complying with all applicable laws, policies, and engagement rules.
