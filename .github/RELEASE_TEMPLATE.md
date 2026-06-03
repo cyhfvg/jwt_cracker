@@ -13,6 +13,15 @@
 
 - `jwt_cracker-{{ version }}-x86_64-unknown-linux-musl.tar.gz`
 - `jwt_cracker-{{ version }}-x86_64-pc-windows-gnu.zip`
+- `SHA256SUMS.txt`
+
+## Verify Downloads
+
+Download the release archives and `SHA256SUMS.txt`, then run:
+
+```bash
+sha256sum --check SHA256SUMS.txt
+```
 
 ## Notes
 
